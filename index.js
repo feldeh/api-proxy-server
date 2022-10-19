@@ -21,7 +21,7 @@ const app = express()
 //     optionsSuccesstatus: 200,
 // }
 
-app.use(cors(corsOptions))
+app.use(cors())
 
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,
