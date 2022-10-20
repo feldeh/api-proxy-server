@@ -9,7 +9,14 @@ const PORT = process.env.PORT || 8080
 const app = express()
 
 // protecting routes
-const whitelist = ['http://127.0.0.1', 'http://localhost:3001']
+const whitelist = [
+    'http://127.0.0.1',
+    'http://localhost:3001',
+    'https://cloudy-kdgarrahb-feldeh.vercel.app/',
+    'https://cloudy-feldeh.vercel.app/',
+    'https://cloudy-git-main-feldeh.vercel.app/',
+    'https://cloudy-psi.vercel.app/',
+]
 const corsOptions = {
     origin: (origin, callback) => {
         console.log('origin: ' + origin)
