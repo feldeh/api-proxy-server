@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const morgan = require('morgan')
 const rateLimit = require('express-rate-limit')
 require('dotenv').config()
 
@@ -11,7 +12,7 @@ const app = express()
 const whitelist = ['http://127.0.0.1', 'http://localhost:3001']
 const corsOptions = {
     origin: (origin, callback) => {
-        console.log(origin)
+        console.log('origin: ' + origin)
         if (!origin || whitelist.indexOf(origin) !== -1) {
             // acknowledgment callback function (see node error convention)
             callback(null, true)
@@ -21,6 +22,8 @@ const corsOptions = {
     },
     optionsSuccesstatus: 200,
 }
+
+app.use(morgan('tiny'))
 
 app.use(cors(corsOptions))
 
