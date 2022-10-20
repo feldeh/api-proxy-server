@@ -8,20 +8,21 @@ const PORT = process.env.PORT || 8080
 const app = express()
 
 // protecting routes
-// const whitelist = ['http://127.0.0.1']
-// const corsOptions = {
-//     origin: (origin, callback) => {
-//         if (!origin || whitelist.indexOf(origin) !== -1) {
-//             // acknowledgment callback function when null is passed (see node error convention)
-//             callback(null, true)
-//         } else {
-//             callback(new Error('Not allowed by CORS'))
-//         }
-//     },
-//     optionsSuccesstatus: 200,
-// }
+const whitelist = ['http://127.0.0.1']
+const corsOptions = {
+    origin: (origin, callback) => {
+        console.log(origin)
+        if (!origin || whitelist.indexOf(origin) !== -1) {
+            // acknowledgment callback function (see node error convention)
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+    optionsSuccesstatus: 200,
+}
 
-app.use(cors())
+app.use(cors(corsOptions))
 
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,
