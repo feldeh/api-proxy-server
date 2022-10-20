@@ -12,10 +12,10 @@ const app = express()
 const whitelist = [
     'http://127.0.0.1',
     'http://localhost:3001',
-    'https://cloudy-kdgarrahb-feldeh.vercel.app/',
-    'https://cloudy-feldeh.vercel.app/',
-    'https://cloudy-git-main-feldeh.vercel.app/',
-    'https://cloudy-psi.vercel.app/',
+    'https://cloudy-kdgarrahb-feldeh.vercel.app',
+    'https://cloudy-feldeh.vercel.app',
+    'https://cloudy-git-main-feldeh.vercel.app',
+    'https://cloudy-psi.vercel.app',
 ]
 const corsOptions = {
     origin: (origin, callback) => {
