@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8080
 const app = express()
 
 // protecting routes
-const whitelist = ['http://127.0.0.1']
+const whitelist = ['http://127.0.0.1', 'http://localhost:3001']
 const corsOptions = {
     origin: (origin, callback) => {
         console.log(origin)
