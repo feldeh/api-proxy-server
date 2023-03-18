@@ -12,6 +12,8 @@ const app = express()
 const whitelist = [
     'http://127.0.0.1:3001',
     'http://localhost:3001',
+    'http://127.0.0.1:5173',
+    'http://localhost:5173',
     'https://cloudy-kdgarrahb-feldeh.vercel.app',
     'https://cloudy-feldeh.vercel.app',
     'https://cloudy-git-main-feldeh.vercel.app',
