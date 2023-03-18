@@ -11,6 +11,9 @@ const API_BASE_URL = process.env.API_BASE_URL
 const API_KEY_NAME = process.env.API_KEY_NAME
 const API_KEY_VALUE = process.env.API_KEY_VALUE
 
+const CMC_API_KEY = process.env.CMC_API_KEY
+const CMC_BASE_URL = process.env.CMC_BASE_URL
+
 router.get('/geodb', async (req, res) => {
     try {
         const params = new URLSearchParams({
@@ -57,6 +60,20 @@ router.get('/weather', cache('2 minutes'), async (req, res) => {
             console.log(`REQUEST: ${API_BASE_URL}?${params}`)
         }
 
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' })
+    }
+})
+
+router.get('/global-metrics', cache('2 minutes'), async (req, res) => {
+    try {
+        const apiRes = await needle('get', `${CMC_BASE_URL}`, {
+            headers: {
+                'X-CMC_PRO_API_KEY': CMC_API_KEY,
+            },
+        })
+        const data = apiRes.body
         res.status(200).json(data)
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' })
