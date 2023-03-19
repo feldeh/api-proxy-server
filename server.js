@@ -19,6 +19,8 @@ const whitelist = [
     'https://cloudy-git-main-feldeh.vercel.app',
     'https://cloudy-psi.vercel.app',
     'https://cloudy-fryyb72ny-feldeh.vercel.app',
+    'https://tokenmarket.vercel.app/',
+    'https://tokenmarket-huixkade4-feldeh.vercel.app',
 ]
 const corsOptions = {
     origin: (origin, callback) => {
