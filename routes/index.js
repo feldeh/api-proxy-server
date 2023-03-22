@@ -39,7 +39,6 @@ router.get('/geodb', async (req, res) => {
     }
 })
 
-// init cache
 let cache = apicache.middleware
 
 router.get('/weather', cache('2 minutes'), async (req, res) => {
